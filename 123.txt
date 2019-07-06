@@ -1,21 +1,379 @@
-In [23]:
-from bs4 import BeautifulSoup
-import os
+In [8]:
+#1. Calculate Area of a Circle
+Pi = 3.14159265
+Radius = float(input("Input Your Radius : "))
+Area = Pi * (Radius*Radius)
+print("Area of Circle With Radius",Radius,"is",Area)
+Input Your Radius : 0.5
+Area of Circle With Radius 0.5 is 0.7853981625
+In [10]:
+#2. Check Number either positive, negative or zero
+#For Output 1
+Number = int(input("Enter The Number : "))
+if Number < 0:
+    print("The Given Number",Number,"is Negative.")
+elif Number > 0:
+    print("The Given Number",Number,"is Positive.")
+else:
+    print("The Given Number",Number,"is Zero.")
 
-fname = input("Enter file name: ") #"example_html_file.html"
+#For Output 2
+Number = int(input("Enter The Number : "))
+if Number < 0:
+    print("The Given Number",Number,"is Negative.")
+elif Number > 0:
+    print("The Given Number",Number,"is Positive.")
+else:
+    print("The Given Number",Number,"is Zero.")
 
-dicTags ={}
+#For Output 3    
+Number = int(input("Enter The Number : "))
+if Number < 0:
+    print("The Given Number",Number,"is Negative.")
+elif Number > 0:
+    print("The Given Number",Number,"is Positive.")
+else:
+    print("The Given Number",Number,"is Zero.")
+Enter The Number : -1
+The Given Number -1 is Negative.
+Enter The Number : 3
+The Given Number 3 is Positive.
+Enter The Number : 0
+The Given Number 0 is Zero.
+In [11]:
+#3. Divisibility Check of two numbers
+#For Output 1
+Numerator = int(input("Enter Numerator : "))
+Denominator = int(input("Enter Denominator : "))
+if Numerator % Denominator == 0:
+    print("Number",Numerator,"is Completely divisible by",Denominator)
+else:
+    print("Number",Numerator,"is not Completely divisible by",Denominator)
+    
+#For Output 2
+Numerator = int(input("Enter Numerator : "))
+Denominator = int(input("Enter Denominator : "))
+if Numerator % Denominator == 0:
+    print("Number",Numerator,"is Completely divisible by",Denominator)
+else:
+    print("Number",Numerator,"is not Completely divisible by",Denominator)
+Enter Numerator : 4
+Enter Denominator : 2
+Number 4 is Completely divisible by 2
+Enter Numerator : 7
+Enter Denominator : 4
+Number 7 is not Completely divisible by 4
+In [32]:
+#4. Days Calculator
+from datetime import datetime
 
-if os.path.isfile(fname) is True:
-    infile = open(fname, 'r')
-    data = infile.read()
-    soup = BeautifulSoup(data)
-    for tag in soup.find_all():
-        if tag.name not in dicTags:
-            dicTags[tag.name] = 1
-        else:
-            dicTags[tag.name]  +=1
-        #print(tag.name)
-print("Dictionary of Tags name and count of tags :",dicTags)
-Enter file name: example_html_file.html
-Dictionary of Tags name and count of tags : {'html': 1, 'head': 1, 'title': 1, 'style': 1, 'body': 1, 'h1': 1, 'p': 3, 'a': 1}
+d0 = datetime.strptime((input("Enter First Date in (dd/mm/yy) format : ")), "%d/%m/%Y").date()
+d1 = datetime.strptime((input("Enter Second Date in (dd/mm/yy) format : ")), "%d/%m/%Y").date()
+
+delta = d1 - d0
+
+print("There are",delta.days,"days in between",d0.strftime("%d/%m/%Y"),"and",d1.strftime("%d/%m/%Y"))
+Enter First Date in (dd/mm/yy) format : 12/12/2018
+Enter Second Date in (dd/mm/yy) format : 16/12/2018
+There are 4 days in between 12/12/2018 and 16/12/2018
+In [33]:
+#5. Calculate Volume of a sphere
+Pi = 3.14159265
+Radius = float(input("Input Your Radius : "))
+Volume = (4/3) * Pi * (Radius*Radius)
+print("Volume of the Sphere With Radius",Radius,"is",Volume)
+Input Your Radius : 1
+Volume of the Sphere With Radius 1.0 is 4.1887902
+In [34]:
+#6. Copy string n times
+string = str(input("Enter string: "))
+n = int(input("How many copies of String you need : "))
+if n > 0:
+    print(n,"Copies of", string , "are :" , string * n)        
+else:
+    print("you Entered Invalid number of Copies : ")
+Enter string: Hi
+How many copies of String you need : 4
+4 Copies of Hi are : HiHiHiHi
+In [35]:
+#7. Check if number is Even or Odd
+#For Output 1
+num = int(input("Enter Number: "))
+if num % 2 == 0:
+    print(num, "is Even")
+else:
+    print(num, "is Odd")
+    
+#For Output 2
+num = int(input("Enter Number: "))
+if num % 2 == 0:
+    print(num, "is Even")
+else:
+    print(num, "is Odd")
+Enter Number: 4
+4 is Even
+Enter Number: 9
+9 is Odd
+In [40]:
+#8. Vowel Tester
+#For Output 1
+char = input("Enter a Character: ")
+c = char.lower()
+if c == "a" or c == "e" or c == "i" or c == "o" or c == "u" :
+    print("Letter",char, "is Vowel.")
+else:
+    print("Letter",char, "is not Vowel.")
+
+#For Output 2
+char = input("Enter a Character: ")
+c = char.lower()
+if c == "a" or c == "e" or c == "i" or c == "o" or c == "u" :
+    print("Letter",char, "is Vowel.")
+else:
+    print("Letter",char, "is not Vowel.")
+
+#For Output 3
+char = input("Enter a Character: ")
+c = char.lower()
+if c == "a" or c == "e" or c == "i" or c == "o" or c == "u" :
+    print("Letter",char, "is Vowel.")
+else:
+    print("Letter",char, "is not Vowel.")
+Enter a Character: A
+Letter A is Vowel.
+Enter a Character: e
+Letter e is Vowel.
+Enter a Character: N
+Letter N is not Vowel.
+In [42]:
+#9. Triangle area
+Base = int(input("Enter Magnitude of Triangle base : "))
+Height = int(input("Enter Magnitude of Triangle Height : "))
+Area = (Base * Height) / 2
+print("Area of Triangle Height",Height,"and Base",Base,"is",Area)
+Enter Magnitude of Triangle base : 4
+Enter Magnitude of Triangle Height : 4
+Area of Triangle Height 4 and Base 4 is 8.0
+In [49]:
+#10. Calculate Interest
+p = int(input("Please Enter Principle Amount: "))
+r = float(input("Please Enter rate of interest per year in %: "))
+y = int(input("Enter Number of years for Investment: "))
+fv = p * (1+r)**y
+print ("After",y,"years your principal amount",p,"over an interest rate of",r,"% will be",round(fv,1))
+Please Enter Principle Amount: 10000
+Please Enter rate of interest per year in %: 0.1
+Enter Number of years for Investment: 5
+After 5 years your principal amount 10000 over an interest rate of 0.1 % will be 16105.1
+In [58]:
+#11. Euclidean distance
+import math
+x1 = int(input("Enter Co-ordinate for x1: "))
+x2 = int(input("Enter Co-ordinate for x2: "))
+y1 = int(input("Enter Co-ordinate for y1: "))
+y2 = int(input("Enter Co-ordinate for y2: "))
+d = (x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2)
+e = math.sqrt(d)
+print("Distance Between Points (", x1 , "," , x2 , ") and (" ,y1, "," , y2 , ") is: ",e)
+Enter Co-ordinate for x1: 2
+Enter Co-ordinate for x2: 4
+Enter Co-ordinate for y1: 4
+Enter Co-ordinate for y2: 4
+Distance Between Points ( 2 , 4 ) and ( 4 , 4 ) is:  2.0
+In [59]:
+#12. Feet to Centimeter Converter
+ft = float(input("Enter Height in Feet : "))
+print("There are", ft * 30.48,"cm","in",ft,"ft" )
+Enter Height in Feet : 5
+There are 152.4 cm in 5.0 ft
+In [62]:
+#13. BMI Calculator
+h = float(input("Enter Height in Cm: "))
+w = float(input("Enter Weight in Kg: "))
+bmi = round( w / (( h * 0.01 )**2) ,2 )
+print( "Your BMI is: ", bmi )
+Enter Height in Cm: 180
+Enter Weight in Kg: 75
+Your BMI is:  23.15
+In [64]:
+#14. Sum of n Positive Integers
+n = int(input("Enter value of n : "))
+sum = (n*(n+1)) / 2
+print("Sum of N Posistive Inetegers till", n ,"is : ", sum)
+Enter value of n : 5
+Sum of N Posistive Inetegers till 5 is :  15.0
+In [69]:
+#15. Digits Sum of a Number
+#For Output 1
+n = str(input("Enter a Number: "))
+sum = 0 
+for s in n:
+    sum += int(s)
+print("Sum of", ' + '.join(map(str,n)) ,"is :",sum)
+
+#For Output 2
+n = str(input("Enter a Number: "))
+sum = 0 
+for s in n:
+    sum += int(s)
+print("Sum of", ' + '.join(map(str,n)) ,"is :",sum)
+Enter a Number: 15
+Sum of 1 + 5 is : 6
+Enter a Number: 1234
+Sum of 1 + 2 + 3 + 4 is : 10
+In [5]:
+#16. Decimal to Binary Converter
+#For Output 1
+d = int(input("Enter a Decimal number: "))
+b = bin(d)
+print("Binary Reperesentation of",d,"is :", b[2:])
+
+#For Output 2
+d = int(input("Enter a Decimal number: "))
+b = bin(d)
+print("Binary Reperesentation of",d,"is :", b[2:])
+Enter a Decimal number: 5
+Binary Reperesentation of 5 is : 101
+Enter a Decimal number: 32
+Binary Reperesentation of 32 is : 100000
+In [7]:
+#17. Binary to Decimal Converter
+#For Output 1
+b = input("Enter a Binary number : ")
+d = int(b,2)
+print("Decimal Reperesentation of",b,"is :",d)
+
+#For Output 2
+b = input("Enter a Binary number : ")
+d = int(b,2)
+print("Decimal Reperesentation of",b,"is :",d)
+Enter a Binary number : 1101
+Decimal Reperesentation of 1101 is : 13
+Enter a Binary number : 1001
+Decimal Reperesentation of 1001 is : 9
+In [1]:
+#18. Vowel and Consonants Counter
+a = input("Enter Text : ")
+c = a.lower()
+Vowel = 0
+Consonant = 0
+for x in c:
+    if x == "a" or x == "e" or x == "i" or x == "o" or x == "u":
+        Vowel += 1
+    else:
+        Consonant += 1
+print("Vowels :", Vowel)
+print("Consonants :", Consonant)
+Enter Text : QuickBrownFoxJumpsovertheDog
+Vowels : 9
+Consonants : 19
+In [2]:
+#19. Palindrome tester
+#For Output 1
+string = str(input("Enter Text : "))
+string = string.casefold()
+str_rev = reversed( string )
+
+if list( string ) == list( str_rev ):
+    print("Text is Palindrome. ")
+else:
+    print("Text is Not Palindrome. ")
+    
+    
+#For Output 2
+string = str(input("Enter Text : "))
+string = string.casefold()
+str_rev = reversed( string )
+
+if list( string ) == list( str_rev ):
+    print("Text is Palindrome. ")
+else:
+    print("Text is Not Palindrome. ")
+Enter Text : AHA
+Text is Palindrome. 
+Enter Text : Hello
+Text is Not Palindrome. 
+In [4]:
+#20. Count Alphabets, Numbers and Special Characters
+string = input("Enter Text : ")
+alpha = 0
+digit = 0
+sc = 0
+space = 0
+for x in string:
+    if int(ord(x)) >= 65 and int(ord(x)) <= 122:
+        alpha += 1
+    elif int(ord(x)) >= 48 and int(ord(x)) <= 57:
+        digit += 1
+    elif x == " ":
+        space += 1
+    else:
+        sc += 1
+print("Numbers:            ",digit)
+print("Alphabets:          ",alpha)
+print("Special Characters: ",sc)
+print("Space:              ",space)
+Enter Text : Python 3.2
+Numbers:             2
+Alphabets:           6
+Special Characters:  1
+Space:               1
+In [29]:
+#21. Write a Python program to construct the following pattern
+i = 6
+d = 0
+for x in range(1,i):
+    for y in range(1, x + 1):
+        print ("*" , end = " ")
+    print(" ")
+for r in range(4,d,-1):
+    for c in range(1, r + 1):
+        print ("*" , end = " ")
+    print(" ")
+*  
+* *  
+* * *  
+* * * *  
+* * * * *  
+* * * *  
+* * *  
+* *  
+*  
+In [30]:
+#22. Write a Python program to construct the following pattern
+i = 6
+d = 0
+for x in range(1,i):
+    for y in range(1, x + 1):
+        print (y , end = " ")
+    print(" ")
+for r in range(4,d,-1):
+    for c in range(1, r + 1):
+        print (c , end = " ")
+    print(" ")
+1  
+1 2  
+1 2 3  
+1 2 3 4  
+1 2 3 4 5  
+1 2 3 4  
+1 2 3  
+1 2  
+1  
+In [31]:
+#23. Write a Python program to construct the following pattern
+for i in range(10):
+    for f in range(i):
+        print(i, end = ' ')
+    print(" ")
+ 
+1  
+2 2  
+3 3 3  
+4 4 4 4  
+5 5 5 5 5  
+6 6 6 6 6 6  
+7 7 7 7 7 7 7  
+8 8 8 8 8 8 8 8  
+9 9 9 9 9 9 9 9 9  
+In [ ]:
