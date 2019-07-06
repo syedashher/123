@@ -1,55 +1,21 @@
-In [4]:
-a = int(input("Enter the marks of sub 1 : "))
-b = int(input("Enter the marks of sub 2 : "))
-c = int(input("Enter the marks of sub 3 : "))
-d = int(input("Enter the marks of sub 4 : "))
-e = int(input("Enter the marks of sub 5 : "))
+In [23]:
+from bs4 import BeautifulSoup
+import os
 
+fname = input("Enter file name: ") #"example_html_file.html"
 
-sum = a+b+c+d+e
-per = sum*100/500
-Grade = ""
+dicTags ={}
 
-if per < 100 and per >= 80:
-    Grade = "A+"
-if per < 80 and per >= 70 :
-    Grade = "A"
-if per < 70 and per >= 60 :
-    Grade = "B"
-if per < 60 and per >= 50 :
-    Grade = "C"
-if per < 50 and per >= 40 :
-    Grade = "D"
-if per < 40 and per >= 0 :
-    Grade = "Fail"
-
-with open("MarkSheet.txt", "w") as file:
-    file.write("Subject 1 Marks = "+str(a)+" \n")
-    file.write("Subject 2 Marks = "+str(b)+" \n")
-    file.write("Subject 3 Marks = "+str(c)+" \n")
-    file.write("Subject 4 Marks = "+str(d)+" \n")
-    file.write("Subject 5 Marks = "+str(e)+" \n")
-    file.write("Total Marks = "+str(500)+" \n")
-    file.write("Marks Obtained = "+str(sum)+" \n")
-    file.write("Percentage = "+str(per)+" \n")
-    file.write("Grade = "+Grade+" \n")
-
-with open("MarkSheet.txt", "r") as f:
-    text_of_file = f.read()   
-    print("__________________________")
-    print(text_of_file)
-Enter the marks of sub 1 : 80
-Enter the marks of sub 2 : 70
-Enter the marks of sub 3 : 60
-Enter the marks of sub 4 : 50
-Enter the marks of sub 5 : 40
-__________________________
-Subject 1 Marks = 80 
-Subject 2 Marks = 70 
-Subject 3 Marks = 60 
-Subject 4 Marks = 50 
-Subject 5 Marks = 40 
-Total Marks = 500 
-Marks Obtained = 300 
-Percentage = 60.0 
-Grade = B 
+if os.path.isfile(fname) is True:
+    infile = open(fname, 'r')
+    data = infile.read()
+    soup = BeautifulSoup(data)
+    for tag in soup.find_all():
+        if tag.name not in dicTags:
+            dicTags[tag.name] = 1
+        else:
+            dicTags[tag.name]  +=1
+        #print(tag.name)
+print("Dictionary of Tags name and count of tags :",dicTags)
+Enter file name: example_html_file.html
+Dictionary of Tags name and count of tags : {'html': 1, 'head': 1, 'title': 1, 'style': 1, 'body': 1, 'h1': 1, 'p': 3, 'a': 1}
